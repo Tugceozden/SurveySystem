@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Application.Services.AuthenticatorService;
 using Application.Services.AuthService;
 using Application.Services.UsersService;
@@ -19,6 +19,11 @@ using NArchitecture.Core.Localization.Resource.Yaml.DependencyInjection;
 using NArchitecture.Core.Mailing;
 using NArchitecture.Core.Mailing.MailKit;
 using NArchitecture.Core.Security.DependencyInjection;
+using Application.Services.Surveys;
+using Application.Services.Questions;
+using Application.Services.Participants;
+using Application.Services.Participations;
+using Application.Services.SurveyResults;
 
 namespace Application;
 
@@ -59,6 +64,11 @@ public static class ApplicationServiceRegistration
 
         services.AddSecurityServices<Guid, int>();
 
+        services.AddScoped<ISurveyService, SurveyManager>();
+        services.AddScoped<IQuestionService, QuestionManager>();
+        services.AddScoped<IParticipantService, ParticipantManager>();
+        services.AddScoped<IParticipationService, ParticipationManager>();
+        services.AddScoped<ISurveyResultService, SurveyResultManager>();
         return services;
     }
 

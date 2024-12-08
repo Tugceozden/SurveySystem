@@ -6,6 +6,11 @@ using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NArchitecture.Core.Security.Constants;
+using Application.Features.Surveys.Constants;
+using Application.Features.Questions.Constants;
+using Application.Features.Participants.Constants;
+using Application.Features.Participations.Constants;
+using Application.Features.SurveyResults.Constants;
 
 namespace Persistence.EntityConfigurations;
 
@@ -97,6 +102,76 @@ public class OperationClaimConfiguration : IEntityTypeConfiguration<OperationCla
         );
         #endregion
 
+        
+        #region Surveys
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = SurveysOperationClaims.Admin },
+                new() { Id = ++lastId, Name = SurveysOperationClaims.Read },
+                new() { Id = ++lastId, Name = SurveysOperationClaims.Write },
+                new() { Id = ++lastId, Name = SurveysOperationClaims.Create },
+                new() { Id = ++lastId, Name = SurveysOperationClaims.Update },
+                new() { Id = ++lastId, Name = SurveysOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region Questions
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = QuestionsOperationClaims.Admin },
+                new() { Id = ++lastId, Name = QuestionsOperationClaims.Read },
+                new() { Id = ++lastId, Name = QuestionsOperationClaims.Write },
+                new() { Id = ++lastId, Name = QuestionsOperationClaims.Create },
+                new() { Id = ++lastId, Name = QuestionsOperationClaims.Update },
+                new() { Id = ++lastId, Name = QuestionsOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region Participants
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = ParticipantsOperationClaims.Admin },
+                new() { Id = ++lastId, Name = ParticipantsOperationClaims.Read },
+                new() { Id = ++lastId, Name = ParticipantsOperationClaims.Write },
+                new() { Id = ++lastId, Name = ParticipantsOperationClaims.Create },
+                new() { Id = ++lastId, Name = ParticipantsOperationClaims.Update },
+                new() { Id = ++lastId, Name = ParticipantsOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region Participations
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = ParticipationsOperationClaims.Admin },
+                new() { Id = ++lastId, Name = ParticipationsOperationClaims.Read },
+                new() { Id = ++lastId, Name = ParticipationsOperationClaims.Write },
+                new() { Id = ++lastId, Name = ParticipationsOperationClaims.Create },
+                new() { Id = ++lastId, Name = ParticipationsOperationClaims.Update },
+                new() { Id = ++lastId, Name = ParticipationsOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
+        
+        #region SurveyResults
+        featureOperationClaims.AddRange(
+            [
+                new() { Id = ++lastId, Name = SurveyResultsOperationClaims.Admin },
+                new() { Id = ++lastId, Name = SurveyResultsOperationClaims.Read },
+                new() { Id = ++lastId, Name = SurveyResultsOperationClaims.Write },
+                new() { Id = ++lastId, Name = SurveyResultsOperationClaims.Create },
+                new() { Id = ++lastId, Name = SurveyResultsOperationClaims.Update },
+                new() { Id = ++lastId, Name = SurveyResultsOperationClaims.Delete },
+            ]
+        );
+        #endregion
+        
         return featureOperationClaims;
     }
 #pragma warning restore S1854 // Unused assignments should be removed
